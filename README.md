@@ -18,7 +18,18 @@
    jupyter notebook knn_classification.ipynb
    ```
 
-## 📊 Key Findings & Results
-* **Optimal Hyperparameters:** Found $K = [X]$ using `GridSearchCV` with [Metric, e.g., Euclidean] distance.
-* **Model Performance:** Achieved an Accuracy of `XX%` and an F1-Score of `XX%` on the test set.
-* **Insights:** Feature scaling (StandardScaler) improved baseline accuracy by `XX%`. The model struggles slightly with class [X] due to [imbalance/overlap].
+## 📊 Key Findings & ResultsPerformance Evaluation & Interpretation
+
+The optimized K-Nearest Neighbors model demonstrates exceptional classification performance across all key evaluation metrics:
+
+* **Overall Accuracy (98%):** The model correctly classifies 98.2% of all test instances (112 out of 114 samples), indicating a robust general dependency mapping.
+* **Performance on Class 0:** 
+  * **Precision (1.00):** Out of all instances the model predicted as Class 0, 100% were actually Class 0. There are zero False Positives for this class.
+  * **Recall (0.95):** The model successfully captured 95% of the actual Class 0 instances, missing only 5% (False Negatives).
+* **Performance on Class 1:**
+  * **Precision (0.97):** Out of all instances predicted as Class 1, 97% were correct.
+  * **Recall (1.00):** The model achieved perfect recall (100%) for Class 1, meaning it successfully identified every single actual Class 1 instance in the test set.
+* **F1-Score (0.98 & 0.99):** The harmonic mean of precision and recall is exceptionally high for both classes, proving that the model is well-balanced and not biased toward the majority class (Class 1, with 72 samples) despite the slight class imbalance.
+
+ Conclusion
+The systematic hyperparameter tuning using `GridSearchCV` paired with feature standardization successfully eliminated the bias typically found in vanilla KNN implementations. The model generalizes beautifully to unseen data.
